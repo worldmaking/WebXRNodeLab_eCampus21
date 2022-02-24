@@ -1,0 +1,24 @@
+{
+  "name": "webxrnodelab_ecampus21",
+  "version": "1.0.0",
+  "description": "Template for multi-user webxr for eCampus project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worldmaking/WebXRNodeLab_eCampus21.git"
+  },
+  "author": "Graham Wakefield and the Alice Lab at York University",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/worldmaking/WebXRNodeLab_eCampus21/issues"
+  },
+  "homepage": "https://github.com/worldmaking/WebXRNodeLab_eCampus21#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "ws": "^8.5.0"
+  }
+}
