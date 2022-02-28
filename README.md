@@ -50,7 +50,9 @@ You will also need a host server for the server-side Node.js code to share world
 
 # Client code
 
-The client code (`index.js`) defines how the world is experienced. It is defined largely using the Three.js library.
+Client code is all held in the `/public` folder of the repository. All content in this folder is served from the server. 
+
+Client code (e.g. `index.js`) defines how the world is experienced. It is defined largely using the Three.js library.
 
 The first call loads the template module code from `app.mjs`.
 
@@ -87,8 +89,6 @@ Each room also provides a definition of the content of the world. The first clie
 
 The server runs on a Node.js instance. This means that both client and server use a single language (Javascript). It will require a server provider that can host Node.js processes. 
 
-For a quick tutorial on Node.js, [see nodejs.md](nodejs.md)
-
 We evaluated three server configurations:
 - localhost (single machine) / local area network (LAN)
 - Heroku instance
@@ -96,6 +96,14 @@ We evaluated three server configurations:
 
 For security reasons, entering VR using WebXR requires a secure host (HTTPS). 
 
+For a quick tutorial on Node.js, [see nodejs.md](nodejs.md)
+
+The server code is quite straightforward, and contained in a single file (`server.js`)
+
+The server is written using standard libraries of Node.js, along with a small number of 3rd party modules:
+- **express** to simplify the creation of a web server
+- **ws** for a standardized interface over websockets, for continuous communication between server and clients
+- **uuid** to generate unique identifiers for clients
 
 ## Heroku
 
