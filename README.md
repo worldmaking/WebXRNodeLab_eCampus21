@@ -2,6 +2,12 @@
 
 WebXRNodeLab_eCampus21 is a project template for building multi-user WebXR spaces using Three.js (client side) and Node.js (server side). 
 
+An example project using the template can be visited at [https://webxrnodelab.herokuapp.com/](https://webxrnodelab.herokuapp.com/)
+
+![A screenshot of the example project, showing two visitor avatars in a shared navigable world of cuboid objects, and the "Enter VR" button for viewing in VR](screenshot.png)
+
+Image shows a screenshot of the example project, showing two visitor avatars in a shared navigable world of cuboid objects, and the "Enter VR" button for viewing in VR.
+
 ## Sister projects
 
 This is one of three projects developed in parallel by OCAD University and York University researchers with the goal of providing students of varying educational backgrounds and skillsets with the necessary toolkits to quickly produce WebXR envrironments for their creative media projects:
