@@ -1,13 +1,11 @@
 import * as THREE from './build/three.module.js';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { RoundedBoxGeometry } from './jsm/geometries/RoundedBoxGeometry.js';
-import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
 
+// pull in the standard classes defined in the app.mjs module:
 import { App, Player, Person } from "./app.mjs"
-//import { socket } from "./connect.mjs"
 
+// create a Three.js application:
 let app = new App();
-let player = new Player(app);
 
 let { renderer, scene, clock, camera, keyboard, mouse, teleportable } = app;
 
@@ -37,20 +35,6 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 	dirLight.shadow.camera.top = -30;
 }
 
-// const floorPlane = new THREE.PlaneGeometry(30, 30, 30, 30);
-// floorPlane.rotateX(-Math.PI / 2);
-// const floor = new THREE.Mesh(
-// 	floorPlane,
-// 	new THREE.ShadowMaterial({
-// 		opacity: 0.5
-// 	})
-// );
-// floor.castShadow = false;
-// floor.receiveShadow = true;
-// scene.add(floor);
-
-// const floorGrid = new THREE.PolarGridHelper();
-// scene.add(floorGrid);
 
 function makeWorld() {
 	// make a jumbled up world
@@ -80,22 +64,6 @@ function makeWorld() {
 	return world.toJSON()
 }
 
-function addWorld(json) {
-	const loader = new THREE.ObjectLoader();
-	const world = loader.parse( json );
-	console.log(world)
-	scene.add(world)
-	world.traverse(obj => {
-		if (obj.userData.teleportable) teleportable.push(obj)
-	})
-}
-
-
-//addWorld(makeWorld())
-
-
-
-//////////////////////////////////
 
 //////////////////////////////////
 
@@ -136,20 +104,15 @@ function avatarize(player) {
 
 let persons = []
 
-persons.push(new Person(app))
 
-
+let player = new Player(app);
 avatarize(player)
-
-persons.map(avatarize)
 
 function animate() {
 	let { camera, cameraVR, renderer, scene } = app;
 	// get current timing:
 	const dt = clock.getDelta();
 	const t = clock.getElapsedTime();
-
-
 
 	// draw the scene:
 	if (renderer.xr.isPresenting) {
@@ -176,6 +139,16 @@ console.log("connecting to", addr)
 // this is how to create a client socket in the browser:
 let socket = new WebSocket(addr);
 let uid = ""
+
+function addWorld(json) {
+	const loader = new THREE.ObjectLoader();
+	const world = loader.parse( json );
+	console.log(world)
+	scene.add(world)
+	world.traverse(obj => {
+		if (obj.userData.teleportable) teleportable.push(obj)
+	})
+}
 
 // let's know when it works:
 socket.onopen = function() { 
