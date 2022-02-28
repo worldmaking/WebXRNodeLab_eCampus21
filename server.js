@@ -21,8 +21,7 @@ const PORT_HTTP = process.env.PORT || process.env.PORT_HTTP || 3000
 const PORT_HTTPS = process.env.PORT_HTTPS || 443;
 const PORT = IS_HTTPS ? PORT_HTTPS : PORT_HTTP;
 // where static HTML etc. files are found
-//const PUBLIC_PATH = path.join(__dirname, "public")
-const PUBLIC_PATH = path.join(__dirname, "..", "WebXR_P5js_eCampus21")
+const PUBLIC_PATH = path.join(__dirname, "public")
 
 
 // create an Express app:
