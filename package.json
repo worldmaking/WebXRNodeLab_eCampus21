@@ -19,6 +19,7 @@
   "homepage": "https://github.com/worldmaking/WebXRNodeLab_eCampus21#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "uuidv4": "^6.2.12",
     "ws": "^8.5.0"
   }
 }
