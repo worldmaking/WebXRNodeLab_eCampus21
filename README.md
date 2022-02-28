@@ -10,9 +10,12 @@ This project is made possible with funding by the Government of Ontario and thro
 
 WebXRNodeLab_eCampus21 by The Alice Lab at York University is licensed under the GNU General Public License v3.0, except where otherwise noted.
 
+[Three.js is shared under the MIT license](https://github.com/mrdoob/three.js/blob/dev/LICENSE)
+
 ## Sister projects
 
-TBC
+- [WebXR Template for A-Frame](https://github.com/ocadwebxr/ocadu-open-webxr)
+- [WebXR Template for P5.js](https://github.com/worldmaking/WebXR_P5js_eCampus21)
 
 # User Manual
 

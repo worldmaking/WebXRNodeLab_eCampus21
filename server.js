@@ -21,7 +21,8 @@ const PORT_HTTP = process.env.PORT || process.env.PORT_HTTP || 3000
 const PORT_HTTPS = process.env.PORT_HTTPS || 443;
 const PORT = IS_HTTPS ? PORT_HTTPS : PORT_HTTP;
 // where static HTML etc. files are found
-const PUBLIC_PATH = path.join(__dirname, "public")
+//const PUBLIC_PATH = path.join(__dirname, "public")
+const PUBLIC_PATH = path.join(__dirname, "..", "WebXR_P5js_eCampus21")
 
 
 // create an Express app:
@@ -105,10 +106,7 @@ wss.on('connection', (socket, req) => {
 					}
 				} break;
 				case "world": {
-					console.log(msg)
-					
 					let { room, world } = msg
-
 					if (rooms[room]) {
 						rooms[room].world = world
 
@@ -151,13 +149,8 @@ server.listen(PORT, function() {
 });
 
 function createRoom() {
-
-
 	return {
 		clients:[],
-		shared: {
-
-		}
 	}
 }
 
@@ -172,13 +165,8 @@ function getRoom(name) {
 function sendRoom(name, msg) {
 	updateRoomClients()
 
-
 	rooms[name].clients.forEach(shared => {
-
-
 		let client = clients[shared.uid]
-		
-		console.log(client)
 		client.socket.send(msg)
 	})
 }
@@ -187,7 +175,6 @@ function sendRoom(name, msg) {
 function updateRoomClients() {
 
 	let names = Object.keys(rooms)
-
 
 	// first empty them out
 	names.forEach(name => rooms[name].clients.length = 0)
